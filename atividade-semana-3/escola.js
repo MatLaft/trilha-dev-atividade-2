@@ -31,13 +31,13 @@ function addStudent(studentId, name, email, age, classId) {
     }
 }
 
-function addTeacher(teacherId, name, email, age) {
+export default function addTeacher(teacherId, name, email, age) {
     if(!isTeacherRegistered(teacherId)) {
     teachers.push({ id: teacherId, name: name, email: email, age: age });
     }
 }
 
-function removeTeacher(teacherId) {
+export default function removeTeacher(teacherId) {
     if(isTeacherRegistered(teacherId)) {
         const teacherIndex = teachers.findIndex(teacher => teacher.id === teacherId);
         teachers.splice(teacherIndex, 1);
