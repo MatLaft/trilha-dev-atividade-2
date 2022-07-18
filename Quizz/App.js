@@ -17,13 +17,25 @@ import Intro2 from './src/pages/Intro/Intro2';
 import Intro3 from './src/pages/Intro/Intro3';
 import Cadastro from './src/pages/Login/Cadastro';
 import Recuperar from './src/pages/Login/Recuperar';
-import TelaInicial from './src/pages/Inicio/TelaInicial';
+import Quizzes from './src/pages/Inicio/Quizzes/Quizzes';
 
 
 
 const Stack = createStackNavigator()
+const Tab = createBottomTabNavigator()
 
-export default function App() {
+
+
+function Tabs({route}){
+  return(
+    <Tab.Navigator>
+      <Tab.Screen name = 'Quizzes' component = {Quizzes} options={{ headerShown: false}} initialParams={route.params} />
+    </Tab.Navigator>
+  )
+}
+
+
+export default function App({navigation}) {
   return ( 
     <NavigationContainer>
     <Stack.Navigator>
@@ -33,7 +45,7 @@ export default function App() {
         <Stack.Screen name = 'Login' component = {Login}  options={{ headerShown: false }}/>
         <Stack.Screen name = 'Recuperar' component = {Recuperar}  options={{ headerShown: false }}/>
         <Stack.Screen name = 'Cadastro' component = {Cadastro}  options={{ headerShown: false }}/>
-        <Stack.Screen name = 'TelaInicial' component = {TelaInicial}  options={{ headerShown: false }}/>
+        <Stack.Screen name = 'TelaInicial' component = {Tabs}  options={{ headerShown: false }} />
       </Stack.Navigator>
     <StatusBar style="auto" />
     </NavigationContainer>

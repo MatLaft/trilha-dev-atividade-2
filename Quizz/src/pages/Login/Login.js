@@ -5,27 +5,28 @@ import axios from 'axios';
 
 import styles from './Style'
 
-async function getUser() {
-        
-    try {
-      const response = (await axios.get('https://my-json-server.typicode.com/higorpo/trilha-dev-json-server/quizzes')).data;
-      return response
-    } catch (error) {
-      console.error(error);
-    }
-}
 
-async function mudarTela({navigation}){
-    const x = await getUser()
-    navigation.navigate('Cadastro')
-} 
+async function getUser() {
+  try {
+    const listaquiz = await (await axios.get('https://my-json-server.typicode.com/higorpo/trilha-dev-json-server/quizzes')).data;
+    const perfil = await (await axios.get('https://my-json-server.typicode.com/higorpo/trilha-dev-json-server/profile')).data
+    return {'listaquiz':listaquiz,'perfil':perfil};
+  } catch (error) {
+    console.error(error);
+  }
+}
+ 
 
 export default function Login({navigation}){
     const [email,setEmail] = useState(null)
     const [senha,setSenha] = useState(null)
     const [hidePass, setHidePass] = useState(true)
 
-    
+    async function mudarTela(){
+      let x = await getUser()
+      navigation.navigate('TelaInicial',x)
+
+  } 
 
     
     return(
