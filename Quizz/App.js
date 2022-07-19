@@ -19,6 +19,9 @@ import Intro3 from './src/pages/Intro/Intro3';
 import Cadastro from './src/pages/Login/Cadastro';
 import Recuperar from './src/pages/Login/Recuperar';
 import Quizzes from './src/pages/Inicio/Quizzes/Quizzes';
+import Configs from './src/pages/Inicio/Configs/Configs';
+import perfil from './src/pages/Inicio/Perfil/perfil';
+
 
 
 
@@ -31,6 +34,8 @@ function Tabs({route}){
   return(
     <Tab.Navigator>
       <Tab.Screen name = 'Quizzes' component = {Quizzes} options={{ headerShown: false}} initialParams={route.params} />
+      <Tab.Screen name = 'Perfil' component = {perfil} options={{ headerShown: false}} initialParams={route.params} />
+      <Tab.Screen name = 'Configs' component = {Configs} options={{ headerShown: false}} initialParams={route.params} />
     </Tab.Navigator>
   )
 }
