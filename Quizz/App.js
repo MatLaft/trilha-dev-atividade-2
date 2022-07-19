@@ -1,4 +1,5 @@
 import React from 'react';
+import Icon from 'react-native-vector-icons/FontAwesome5'
 
 
 import { StatusBar } from 'expo-status-bar';
