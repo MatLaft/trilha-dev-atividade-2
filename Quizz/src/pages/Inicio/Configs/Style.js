@@ -38,6 +38,9 @@ const styles = StyleSheet.create({
         left:16,
         top:25,
         position: 'absolute',
+        alignContent:'center',
+        justifyContent:'center',
+        alignItems:'center'
         
 
     },
@@ -64,6 +67,19 @@ const styles = StyleSheet.create({
         fontSize:20,
         color:'#3C3A36',
         fontWeight:'500',
+    },
+    voltar:{
+        borderWidth:1,
+        borderColor:'#BEBAB3',
+        width: 40,
+        height:40,
+        justifyContent:'center',
+        alignContent:'center',
+        position: 'absolute',
+        alignItems:'center',
+        top:44,
+        left:16,
+        borderRadius:100
     }
 })
 export default styles
